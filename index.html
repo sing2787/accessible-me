@@ -10,59 +10,104 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&family=Stick+No+Bills:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- e. Schema Information -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Jam Box Studios",
+    "url": "https://example.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-613-000-0000",
+      "contactType": "customer service",
+      "email": "johnjoe@jambox.ca"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Guitar Road",
+      "addressLocality": "Musicville",
+      "addressRegion": "Danceistan",
+      "postalCode": "B3T 0L0",
+      "addressCountry": "CA"
+    }
+  }
+  </script>
 </head>
 
 <body>
+  <!-- c. Skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <div class="container">
-    <div class="site-header">
+    <!-- d. Added ARIA landmark role -->
+    <header class="site-header" role="banner">
+      <!-- a. Semantic fix: only one H1 for site title -->
       <h1>Jam Box Studios</h1>
-      <div class="main-nav">
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">Products</a></li>
           <li><a href="#">Reservation</a></li>
           <li><a href="#">Studio</a></li>
         </ul>
-      </div>
-      <img src="https://placekitten.com/1200/900" class="banner">
-    </div>
-    <div class="main-content">
-      <h1>Welcome to Jam Box</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus laboriosam praesentium nostrum ipsa eveniet, officia deserunt cumque eius esse enim, ipsam accusantium autem nihil quaerat sequi perferendis optio quia veritatis.</p>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam perferendis expedita sed itaque odit ipsam omnis, eos voluptates magni fugit culpa voluptatibus, inventore eaque, eligendi voluptatum! Voluptate iusto error voluptatibus.</p>
-      <div class="owner">
-        <h1>Meet the owner</h1>
+      </nav>
+      <img src="https://placekitten.com/1200/900" alt="Jam Box Studios banner" class="banner">
+    </header>
+
+    <!-- d. ARIA main landmark -->
+    <main id="main-content" class="main-content" role="main">
+      <!-- a. Change this to H2 to preserve heading hierarchy -->
+      <h2>Welcome to Jam Box</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
+
+      <section class="owner">
+        <!-- a. Changed to H2 -->
+        <h2>Meet the owner</h2>
         <ul>
           <li>Name: John Doe</li>
           <li>Title: CEO</li>
-          <li>Email: johnjoe@jambox.ca</li>
-          <li>Phone: 613-000-0000</li>
+          <li>Email: <a href="mailto:johnjoe@jambox.ca">johnjoe@jambox.ca</a></li>
+          <li>Phone: <a href="tel:+1613000000">613-000-0000</a></li>
         </ul>
-        <h1>Address</h1>
-        <p>
-          Jambox Studios
-          123 Guitar Road,
-          Musicville, Danceistan
+        <!-- a. Changed to H2 -->
+        <h2>Address</h2>
+        <address>
+          Jambox Studios<br>
+          123 Guitar Road,<br>
+          Musicville, Danceistan<br>
           B3T 0L0
-        </p>
-      </div>
-      <div class="contact-section">
-        <h1>Contact Us</h1>
-        <form action="thanks.html">
-          <label>Full Name</label>
-          <input type="text" placeholder="Full Name">
-          <input type="text" placeholder="Email">
-          <input type="text" placeholder="Subject">
-          <b>Your Message</b>
-          <textarea></textarea>
+        </address>
+      </section>
+
+      <section class="contact-section">
+        <!-- a. Changed to H2 -->
+        <h2>Contact Us</h2>
+        <form action="thanks.html" aria-label="Contact Form">
+          <!-- a. Added proper labels with for/id -->
+          <label for="fullname">Full Name</label>
+          <input id="fullname" type="text" placeholder="Full Name">
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="Email">
+
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" placeholder="Subject">
+
+          <label for="message">Your Message</label>
+          <textarea id="message"></textarea>
+
           <button type="submit">Send</button>
         </form>
-      </div>
-    </div>
-    <div class="site-footer">
+      </section>
+    </main>
+
+    <!-- d. Footer landmark -->
+    <footer class="site-footer" role="contentinfo">
       &copy; 2021 Jam Box Studios
-    </div>
+    </footer>
   </div>
 </body>
-
 </html>
